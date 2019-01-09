@@ -11,6 +11,7 @@ define(["jquery"], () => {
 				})
 			}).then(() => {
 				this.nav();
+				this.star();
 			})
 		}
 		nav(){
@@ -30,8 +31,22 @@ define(["jquery"], () => {
 		       })
 		    }
 		  })
-
 		}
+
+		star(){
+			$("#ho1").hover(function(){
+				$(".second").css("display","block");
+			},function(){
+				$(".second").css("display","none");
+			})
+			$("#ho2").hover(function(){
+				$(".second").css("display","block");
+			},function(){
+				$(".second").css("display","none");
+			})
+		}
+
+		
 	}
 	return new Header();
 })

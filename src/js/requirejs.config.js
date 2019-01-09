@@ -8,7 +8,12 @@ require.config({
 		"footer" : "js/component/footer",
 		"carousel" :"js/component/carousel",
 		"register" : "js/register",
-		"login" : "js/login"
+		"login" : "js/login",
+		"item" : "js/component/item",
+		"man" :"js/man",
+		"url" : "js/component/url",
+		"template": "libs/template-web",
+		"cart" : "js/cart"
 	},
 	//不符合AMD规范的模块，垫片
 	shim: {
