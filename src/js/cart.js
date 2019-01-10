@@ -68,7 +68,7 @@
 				}
 				str +='<tr>'+
 					  '<td><input type="checkbox" class="check"/></td>'+
-					  '<td><span>'+ " " +'</span></td>'+
+					  '<td><span>'+ value.size +'</span></td>'+
 					  '<td><span>'+value.title+'</span></td>'+
 					  '<td><span>'+value.price+'</span></td>'+
 					  '<td><span class="num">'+value.num+'</span></td>'+
@@ -126,6 +126,7 @@
 					}
 					//修改cookie
 					var obj={
+						size:$("span",tr[i])[0].innerHTML,
 						title:$("span",tr[i])[1].innerHTML,
 						price:$("span",tr[i])[2].innerHTML,
 						num:$("span",tr[i])[3].innerHTML
