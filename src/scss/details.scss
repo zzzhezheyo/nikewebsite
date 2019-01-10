@@ -23,8 +23,30 @@ ul li a{text-decoration: none;}
 		width:700px;
 		height:780px;
 		float:left;
-		border:1px solid red;
+		//border:1px solid red;
 		margin:40px auto;
+		.top{
+			width: 700px;
+		    height: 300px;
+		    
+		}
+		.four{
+		    margin:20px 0;
+			width:700px;
+			height:100px;
+			ul{
+				width:700px;
+				height:100px;
+				display:flex;
+				justify-content: space-between;
+				li{
+					//border:1px solid red;
+					width:300px;
+					height:100px;
+					overflow:hidden;
+				}
+			}
+		}
 	}
 	.right{
 		margin:40px 0;
@@ -39,7 +61,11 @@ ul li a{text-decoration: none;}
 			font-weight:normal;
 			margin-bottom:18px;
 			span{float:right;}
+			img{dialpay:none;}
+			.title{width:200px;height:24px;float:left;}
+			.price{width:100px;height:24px;float:right;}
 		}
+		h3{font-size:20px;}
 		.nike{font-size:18px;line-height:30px;}
 		.size ul{
 			width:390px;
@@ -55,6 +81,7 @@ ul li a{text-decoration: none;}
 			    border-radius: 5px;
 			    margin-right: 5px;
 			    margin-bottom: 5px;
+			    a{color:#000;}
 			}
 		}
 

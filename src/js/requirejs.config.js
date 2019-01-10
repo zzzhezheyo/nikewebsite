@@ -10,6 +10,7 @@ require.config({
 		"register" : "js/register",
 		"login" : "js/login",
 		"item" : "js/component/item",
+		"det" : "js/component/det",
 		"man" :"js/man",
 		"url" : "js/component/url",
 		"template": "libs/template-web",
