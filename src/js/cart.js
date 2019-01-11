@@ -1,4 +1,4 @@
- //业务逻辑
+//业务逻辑
  require(["./requirejs.config"], () => {
  	//引入index需要依赖的模块
  	require(["jquery", "header","footer","cookie"], () => {
@@ -30,58 +30,29 @@
 				/*console.log(getobj);*/
 				arr.push(getobj);
 			}
-			// /*console.log(arr);*/
-			// for(var value of arr){
-			// 	for(var key in value){
-			// 		value[key]=decodeURIComponent(value[key]);
-			// 	}
-			// 	str +='<tr>'+
-			// 		  '<td><input type="checkbox" class="check" /></td>'+
-			// 		  '<td><span class="Ttitle">'+value.title+'</span></td>'+
-			// 		  '<td><span class="Tprice">'+value.price+'</span></td>'+
-			// 		  '<td><span class="Tnum">'+
-			// 		  	'<a href="javascript:;" class="prev">-</a>'+
-			// 		  	'<a href="javascript:;" class="next">+</a>'+
-			// 		  +'</span></td>'+		
-			// 		  '<td>'+
-		 //            	'<a href="javascript:;" class="delBtn">删除</a>'+
-		 //             '</td>'+
-		             
-	  //      		  '</tr>'
-			// }
-			// //加入数据
-			// // addfun();	
-			// tbody.innerHTML =str;
-			
-			// /*function addfun(){
-			// 	let Ttitle = $(".Ttitle");
-			// 	let Tprice = $(".Tprice");
-			// 	let Tnum = $(".Tnum");
-			// 	console.log(Ttitle);
-
-			// 	for(let i=0;i<Ttitle.length;i++)
-			// }*/
 			
 			for(var value of arr){
 				for(var key in value){
 					value[key]=decodeURIComponent(value[key]);
 				}
-				str +='<tr>'+
+				var num = value.num;
+				// console.log(num);
+			str +='<tr class="new">'+
 					  '<td><input type="checkbox" class="check"/></td>'+
-					  '<td><span>'+ " " +'</span></td>'+
+					  '<td><span>'+ value.size +'</span></td>'+
 					  '<td><span>'+value.title+'</span></td>'+
-					  '<td><span>'+value.price+'</span></td>'+
-					  '<td><span class="num">'+value.num+'</span></td>'+
+					  '<td><span>'+Number(value.price)+'</span></td>'+
+					  '<td><a href="javascript:;" class="prev">-</a><span class="num">'+
+					  num+
+					  '</span><a href="javascript:;" class="next">+</a></td>'+
 					  '<td>'+
-		            	// '<a href="javascript:;" class="editBtn">编辑</a>'+
-		            	// '<a href="javascript:;" class="okBtn">确定</a>'+
-		            	// '<a href="javascript:;" class="cancelBtn">取消</a>'+
 		            	'<a href="javascript:;" class="delBtn">删除</a>'+
 		             '</td>'+
 		             
 	       		  '</tr>'
 			}
 			tbody.innerHTML=str;
+	
 
 			var n = 0; // 记录单选按钮被选中的数量
 
@@ -91,6 +62,10 @@
 				var target = e.target || e.srcElement;
 				//找到当前tr
 				var tr = target.parentNode.parentNode;
+				var same1 = value.title;
+				var same2 = $("span",tr)[1].innerHTML;
+				var same3 = value.size;
+				var same4 = $("span",tr)[0].innerHTML;
 				// console.log(tr);
 				if(target.className === "delBtn"){
 					if(confirm("您真的不买我了吗？")){
@@ -105,10 +80,31 @@
 					target.checked? n++ : n--;
 					var aChecked = $(".check",box);
 					reprice();
+				}else if(target.className === "prev"){
+					console.log(value.title);
+					console.log($("span",tr)[1].innerHTML);
+					console.log(same3);
+					console.log(same4);
+					if(num>1){
+						num--;
+					}
+					// if(same1 == same2&&same3==same4){
+						reprice();
+					// }
+					
+				}else if(target.className === "next"){
+					if(num>0){
+						num++;
+						console.log(num);
+					}
+					// if(same1 == same2&&same3==same4){
+						reprice();
+					// }
 				}
 
 			})
-			//
+
+						//
 			function reprice(){
 				var sum=0;
 				var newArr = [];
@@ -117,30 +113,35 @@
 					var check = $(".check",tr[i])[0];
 					if(check.checked===true){
 						var x1 = Number($("span",tr[i])[2].innerHTML);
-						var x2 = Number($("span",tr[i])[3].innerHTML);
-						console.log(x1);
+						var x2 = num;
+						// console.log(x1);
 						console.log(x2);
 						var trMoney=x1*x2;
 						sum+=trMoney;
 						console.log(sum);
 					}
-					//修改cookie
+					//重新存cookie
+					// tr.find('span').css('background-color', 'red');
+
+					var num1 = tr.find(".num").html(num);
+					console.log(num1);
+
 					var obj={
+						size:$("span",tr[i])[0].innerHTML,
 						title:$("span",tr[i])[1].innerHTML,
 						price:$("span",tr[i])[2].innerHTML,
-						num:$("span",tr[i])[3].innerHTML
+						num:num
 					};
-					console.log(obj);
+
 					for(var key in obj){
 						obj[key]=obj[key];
 					}
-					newArr.push(obj);
-					console.log(obj);
+
+					var objString = JSON.stringify(obj);
+
+					$.cookie("cart", objString, { path : '/'});
 				}
 				sumAll.innerHTML=sum;
-				var objString = JSON.stringify(obj);
-				$.cookie("cart", objString, { path : '/'});
-				console.log($.cookie("cart"));
 			}
 
 			// console.log($.cookie('cart'));

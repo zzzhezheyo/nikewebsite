@@ -27,7 +27,7 @@ ul li a{text-decoration: none;}
 	height: 18px;
 	font-size: 14px;
 	color:#666;
-	border:1px solid red;
+	//border:1px solid red;
 	margin:0 auto;
 }
 .Mtitle ul li a{
@@ -54,11 +54,11 @@ ul li a{text-decoration: none;}
 .manImg{
 	width: 1190px;
 	height: 435px;
-	border:1px solid red;
-	margin: 0 auto;
+	//border:1px solid red;
+	margin: 20px auto;
 }
 .manImg ul{
-	border:1px solid red;
+	//border:1px solid red;
 	height: 300px;
 	width: 1190px;
 	
@@ -159,25 +159,28 @@ ul li a{text-decoration: none;}
 	/* display: flex; */
 	width: 1198px;
 	height: 480px;
+	background-position-y: -30px;
+    BACKGROUND-POSITION-X: 20px;
+	background:url(/static/images/m-type.jpg) no-repeat;
 }
 
 .type ul li{
 	float: left;
 	width: 294px;
 	height: 240px;
-	border:1px solid red;
+	//border:1px solid red;
 	text-align: center;
 }
 .type ul li img{
 	width: 245px;
 	height: 150px;
 	margin:0 auto;
-	border-width: 1px solid red;
+	//border-width: 1px solid red;
 }
 .aim{
 	width: 1190px;
 	height: 405px;
-	border: 1px solid red;
+	//border: 1px solid red;
 	margin:0 auto;
 	margin-top: 80px; 
 	.img{

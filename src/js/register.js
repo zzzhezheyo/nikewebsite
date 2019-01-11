@@ -17,34 +17,38 @@ require(["./requirejs.config"], () => {
 				var reg =/\w/;
 				var reg1 =/^.{6,}$/;
 				var reg2 = /^1\d{10}/;
+				var flag = true;
 				console.log("text");
 				//验证用户名	
 				if(reg.test(wname)&&!wname==""){
 					console.log("text");
 				}else{
+
+					flag = false;
 					alert("请输入正确的用户名");
 				}
 				//验证密码不能少于6位的字符
-				if(reg1.test(wpwd)){
+				if(reg1.test(wpwd)&&!wpwd==""){
 					
 				}else{
 					alert("请输入正确的密码");
-					
+					flag = false;
 				}
 				//再次验证密码
-				if(wpwd===wrePwd){
+				if(wpwd===wrePwd&&!wrePwd==""){
 					
 				} else{
 					alert("请两次输入的密码一致");
-				
+					flag = false;
 				}
 				//验证以1开头11位的手机号码
-				if(reg2.test(wtel)){
+				if(reg2.test(wtel)&&!wtel==""){
 		
 				}else{
 					alert("请输入正确的手机号码");
+					flag = false;
 				}
-				console.log("text");
+				// console.log("text");
 
 				$.ajax({
 					url: "http://localhost/api/v1/register.php",
@@ -55,12 +59,16 @@ require(["./requirejs.config"], () => {
 						password: wpwd
 					},
 					success: function(res){
-						console.log("t666");
-						if(res.res_code ===1){
-							alert("注册成功，马上去登录");
-							location.href = "/html/login.html";
-						}else if(res.res_code === 0){
-							alert("用户名已存在,请重新注册");
+						// console.log("t666");
+						if(flag===true){
+							if(res.res_code ===1){
+								alert("注册成功，马上去登录");
+								location.href = "/html/login.html";
+							}
+						}
+						else if(res.res_code === 0){
+							// console.log("123");
+							alert("注册失败,请重新注册");
 						}
 					},
 					dataType: "json"

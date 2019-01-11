@@ -30,37 +30,6 @@
 				/*console.log(getobj);*/
 				arr.push(getobj);
 			}
-			// /*console.log(arr);*/
-			// for(var value of arr){
-			// 	for(var key in value){
-			// 		value[key]=decodeURIComponent(value[key]);
-			// 	}
-			// 	str +='<tr>'+
-			// 		  '<td><input type="checkbox" class="check" /></td>'+
-			// 		  '<td><span class="Ttitle">'+value.title+'</span></td>'+
-			// 		  '<td><span class="Tprice">'+value.price+'</span></td>'+
-			// 		  '<td><span class="Tnum">'+
-			// 		  	'<a href="javascript:;" class="prev">-</a>'+
-			// 		  	'<a href="javascript:;" class="next">+</a>'+
-			// 		  +'</span></td>'+		
-			// 		  '<td>'+
-		 //            	'<a href="javascript:;" class="delBtn">删除</a>'+
-		 //             '</td>'+
-		             
-	  //      		  '</tr>'
-			// }
-			// //加入数据
-			// // addfun();	
-			// tbody.innerHTML =str;
-			
-			// /*function addfun(){
-			// 	let Ttitle = $(".Ttitle");
-			// 	let Tprice = $(".Tprice");
-			// 	let Tnum = $(".Tnum");
-			// 	console.log(Ttitle);
-
-			// 	for(let i=0;i<Ttitle.length;i++)
-			// }*/
 			
 			for(var value of arr){
 				for(var key in value){
@@ -71,12 +40,10 @@
 					  '<td><span>'+ " " +'</span></td>'+
 					  '<td><span>'+value.title+'</span></td>'+
 					  '<td><span>'+value.price+'</span></td>'+
-					  '<td><span class="num">'+value.num+'</span></td>'+
+					   '<td><span>'+value.num+'</span><input type="text"></td>'+
 					  '<td>'+
-		            	// '<a href="javascript:;" class="editBtn">编辑</a>'+
-		            	// '<a href="javascript:;" class="okBtn">确定</a>'+
-		            	// '<a href="javascript:;" class="cancelBtn">取消</a>'+
 		            	'<a href="javascript:;" class="delBtn">删除</a>'+
+		            	'<a href="javascript:;" class="delBtn">编辑</a>'+
 		             '</td>'+
 		             
 	       		  '</tr>'
@@ -105,6 +72,13 @@
 					target.checked? n++ : n--;
 					var aChecked = $(".check",box);
 					reprice();
+				}else if(target.className === "prev"){
+					if(num===0){
+						tr.parentNode.removeChild(tr);
+					}else{
+						num--;
+						console.log(num);
+					}
 				}
 
 			})
@@ -143,7 +117,6 @@
 				console.log($.cookie("cart"));
 			}
 
-			// console.log($.cookie('cart'));
 
  		 })
  	})

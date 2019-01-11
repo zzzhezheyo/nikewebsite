@@ -10,6 +10,7 @@ require(["./requirejs.config"], () => {
 			/*console.log(getstr);*/
 			var get = getstr.split('+');
 			var id = get[0];
+			console.log(id);
 			var title = get[1];
 			var price = get[2];
 			var picture = $(".top").find('img');
@@ -35,8 +36,11 @@ require(["./requirejs.config"], () => {
 			 $(".addCart").on("click",function(e){
 			/* $(function(e){	*/
 			 	e = e ||window.event;
-			 	
-				//获取事件源
+			 	if(size==null){
+			 		alert("请选择大小");
+			 	}else{
+			 		window.location.href="/html/cart.html";
+			 		//获取事件源
 				var target = e.target||e.srcElement;
 				var obj = {
 					id : id,
@@ -61,9 +65,11 @@ require(["./requirejs.config"], () => {
 				}
 				console.log(allcart);
 				
-			 })
+			 
 
-
+			 	}
+				
+			 	})
 		})
 	})
 })

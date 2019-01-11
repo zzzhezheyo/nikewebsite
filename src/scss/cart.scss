@@ -11,12 +11,12 @@ ul li a{text-decoration: none;}
 
 .cart{
 	width:1000px;
-	min-height:600px;
+	min-height:1000px;
 	margin:40px auto;
 	.left{
 		width:675px;
-		min-height:600px;
-		border:1px solid red;
+		min-height:800px;
+		//border:1px solid red;
 		float:left;
 		.warn{
 			width:675px;
@@ -46,7 +46,11 @@ ul li a{text-decoration: none;}
 			table{
 				border-collapse:collapse;
 				width:675px;
-				th,td{width:135px;border:1px solid #eee;height:40px;font-size:16px;line-height:40px;}
+				th,td{text-align:center;width:135px;border:1px solid #eee;height:40px;font-size:16px;line-height:40px;}
+				.num{margin: 5px;
+				    border: 1px solid #ccc;
+				    padding: 5px;}
+				a{color:#000;}    
 			}
 
 		}
@@ -79,7 +83,7 @@ ul li a{text-decoration: none;}
 
 .like{
 	width:1180px;
-	height:200px;
+	height:300px;
 	margin:0 auto;
 	border:1px solid red;
 	h2{text-align:center;}
