@@ -17,14 +17,12 @@ require(["./requirejs.config"], () => {
 				var reg =/\w/;
 				var reg1 =/^.{6,}$/;
 				var reg2 = /^1\d{10}/;
-				var flag = true;
 				console.log("text");
+				var flag = true;
 				//验证用户名	
 				if(reg.test(wname)&&!wname==""){
 					console.log("text");
 				}else{
-
-					flag = false;
 					alert("请输入正确的用户名");
 				}
 				//验证密码不能少于6位的字符
@@ -48,31 +46,33 @@ require(["./requirejs.config"], () => {
 					alert("请输入正确的手机号码");
 					flag = false;
 				}
-				// console.log("text");
+				console.log("text");
 
-				$.ajax({
-					url: "http://localhost/api/v1/register.php",
-					type: "post",
-					data: {
-						name: wname,
-						tel: wtel,
-						password: wpwd
-					},
-					success: function(res){
-						// console.log("t666");
-						if(flag===true){
+				if(flag===false){
+					alert("注册失败");
+				}else{
+					$.ajax({
+						url: "http://localhost/api/v1/register.php",
+						type: "post",
+						data: {
+							name: wname,
+							tel: wtel,
+							password: wpwd
+						},
+						success: function(res){
+							console.log("t666");
 							if(res.res_code ===1){
 								alert("注册成功，马上去登录");
 								location.href = "/html/login.html";
+							}else if(res.res_code === 0){
+								alert("用户名已存在,请重新注册");
 							}
-						}
-						else if(res.res_code === 0){
-							// console.log("123");
-							alert("注册失败,请重新注册");
-						}
-					},
-					dataType: "json"
-				})	
+						},
+						dataType: "json"
+					})	
+				}
+
+				
 				return false;
 			})
 		})
