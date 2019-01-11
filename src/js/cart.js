@@ -81,6 +81,8 @@
 					var aChecked = $(".check",box);
 					reprice();
 				}else if(target.className === "prev"){
+					// console.log(tr);
+					// console.log($("span",tr)[3].html;		
 					console.log(value.title);
 					console.log($("span",tr)[1].innerHTML);
 					console.log(same3);
@@ -88,6 +90,7 @@
 					if(num>1){
 						num--;
 					}
+
 					// if(same1 == same2&&same3==same4){
 						reprice();
 					// }
@@ -95,7 +98,7 @@
 				}else if(target.className === "next"){
 					if(num>0){
 						num++;
-						console.log(num);
+						// console.log(num);
 					}
 					// if(same1 == same2&&same3==same4){
 						reprice();
@@ -115,16 +118,16 @@
 						var x1 = Number($("span",tr[i])[2].innerHTML);
 						var x2 = num;
 						// console.log(x1);
-						console.log(x2);
+						// console.log(x2);
 						var trMoney=x1*x2;
 						sum+=trMoney;
-						console.log(sum);
+						// console.log(sum);
 					}
 					//重新存cookie
 					// tr.find('span').css('background-color', 'red');
 
 					var num1 = tr.find(".num").html(num);
-					console.log(num1);
+					// console.log(num1);
 
 					var obj={
 						size:$("span",tr[i])[0].innerHTML,
