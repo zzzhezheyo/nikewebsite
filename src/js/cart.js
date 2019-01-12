@@ -127,7 +127,7 @@
 					// tr.find('span').css('background-color', 'red');
 
 					var num1 = tr.find(".num").html(num);
-					// console.log(num1);
+					//console.log(num1);
 
 					var obj={
 						size:$("span",tr[i])[0].innerHTML,

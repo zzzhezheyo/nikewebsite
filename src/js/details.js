@@ -24,7 +24,7 @@ require(["./requirejs.config"], () => {
 			 $(".large").on("click",function(e){
 			 	e=e||window.event;
 			 	var target1 = e.target||e.srcElement;
-			 	
+			 	// $("li",$(".large")).css('background-color','red');
 			 	if(target1.className = "large"){
 			 		size=target1.innerHTML;
 			 		
